@@ -59,8 +59,7 @@ def fire_bullet(x, y):
     screen.blit(bulletImg, (x + 16, y + 10))
 def isCollision(enemyX, enemyY, bulletX, bulletY):
     distance = math.sqrt(math.pow(enemyX - bulletX, 2) + math.pow(enemyY - bulletY, 2))
-    if distance < 27:
-     return distance > Collision_DISTANCE           
+    return distance < Collision_DISTANCE           
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -73,8 +72,7 @@ while running:
     screen.blit(background, (0, 0))
     player(playerx, playery)
    
-        
-    pygame.display.update()
+     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -123,6 +121,8 @@ while running:
         fire_bullet(bulletX, bulletY)
         bulletY -= bulletY_change
     show_score(textX, textY)
+       
+    pygame.display.update()
 
 
             
